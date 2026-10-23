@@ -1342,35 +1342,62 @@ body {
   color: var(--gold-dark);
 }
 
-/* Establishments / Pratishthan List */
+/* Establishments / Pratishthan List (Colored Background & High Contrast) */
 .pratishthan-list {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-top: 0.5rem;
+  gap: 10px;
+  margin-top: 0.6rem;
   text-align: left;
 }
 
 .pratishthan-item {
   display: flex;
   align-items: flex-start;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.7);
-  padding: 0.5rem 0.75rem;
-  border-radius: 10px;
-  border: 1px solid rgba(212, 175, 55, 0.25);
-  font-family: var(--font-sans);
-  font-size: 0.88rem;
-  color: #3b2210;
-  line-height: 1.4;
+  gap: 11px;
+  background: #731317;
+  background: linear-gradient(135deg, #7c151a 0%, #5e0d10 100%);
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(223, 178, 62, 0.55);
+  border-left: 4.5px solid var(--gold-rich, #dfb23e);
+  box-shadow: 0 4px 14px rgba(92, 13, 16, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.pratishthan-item .pratishthan-icon {
-  color: var(--gold-rich);
-  font-size: 0.85rem;
-  margin-top: 2px;
+.pratishthan-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(250, 225, 140, 0.9);
+  box-shadow: 0 6px 18px rgba(92, 13, 16, 0.32);
+}
+
+.pratishthan-star {
+  color: #ffd76b;
+  font-size: 1.1rem;
+  line-height: 1.35;
   flex-shrink: 0;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+.pratishthan-text {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #f1ddbe;
+  flex: 1;
+}
+
+.pratishthan-name {
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.015em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.pratishthan-loc {
+  font-weight: 500;
+  color: #f7e7cf;
 }
 
 .contact-person {
