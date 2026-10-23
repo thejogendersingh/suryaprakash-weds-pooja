@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Rohit weds Priya - Wedding Invitation</title>
-  <meta name="description" content="Wedding Invitation of Rohit & Priya - An auspicious celebration">
+  <title>Surya weds Pooja - Wedding Invitation</title>
+  <meta name="description" content="Wedding Invitation of Surya Prakash & Pooja - An auspicious celebration">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600;1,700&family=Great+Vibes&family=Marcellus&family=Montserrat:wght@400;500;600;700&family=Rozha+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600;1,700&family=Great+Vibes&family=Marcellus&family=Montserrat:wght@400;500;600;700&family=Rozha+One&family=Yatra+One&display=swap" rel="stylesheet">
   
   <!-- Preload Critical Above-The-Fold Images for Superfast Load -->
   <link rel="preload" as="image" href="assets/intro-envolp.webp" type="image/webp" fetchpriority="high">
@@ -21,6 +21,9 @@
   <!-- App Container (Mobile viewport focused) -->
   <main class="app-viewport" id="appViewport">
     
+    <!-- Gentle Slow Falling Flower Petals Layer -->
+    <div class="flower-petals-layer" id="flowerPetalsLayer" aria-hidden="true"></div>
+
     <!-- ================= INTRO SECTION ================= -->
     <section class="screen intro-screen" id="introScreen">
       
@@ -55,10 +58,10 @@
 
         <!-- Auspicious Shloka & Title with Golden Flourishes -->
         <div class="shubh-container">
-          <p class="ganesh-mantra">॥ श्री गणेशाय नमः ॥</p>
+          <p class="ganesh-mantra">॥ SHREE GANESHAYA NAMAH ॥</p>
           <div class="shubh-title-row">
             <span class="gold-motif">❖</span>
-            <span class="shubh-text">शुभ विवाह</span>
+            <span class="shubh-text">SHUBH VIVAH</span>
             <span class="gold-motif">❖</span>
           </div>
         </div>
@@ -78,7 +81,7 @@
         <!-- Invitation Text Details (Snug right below envelope) -->
         <div class="intro-content">
           <p class="invite-pretitle">You're invited to celebrate</p>
-          <h1 class="couple-title">Rohit weds Priya</h1>
+          <h1 class="couple-title">Surya weds Pooja</h1>
           <p class="wedding-tag">Wedding</p>
         </div>
 
@@ -104,8 +107,8 @@
       <!-- Floating Petals & Festive Sparkles Layer -->
       <div class="particles-layer" id="particlesLayer" aria-hidden="true"></div>
 
-      <!-- Background Music Audio (Carnatic Instrumental Serenity from YouTube - Starting 10s trimmed) -->
-      <audio id="bgMusic" src="assets/bg-music.mp3?v=trimmed10s" preload="none" loop playsinline></audio>
+      <!-- Background Music Audio (Lost Stories ft. Jai Dhir - Sunehra) -->
+      <audio id="bgMusic" src="assets/bg-music.mp3?v=sunehra" preload="none" loop playsinline></audio>
     </section>
 
     <!-- ================= HERO & DETAILS SECTION ================= -->
@@ -133,7 +136,7 @@
         
         <!-- Hero Invitation Card (Full Mobile Screen) -->
         <div class="hero-image-wrapper" id="heroWrapper">
-          <img src="assets/hero.webp" alt="Rohit & Priya Wedding Invitation Card" class="hero-img" id="heroImg" draggable="false" fetchpriority="high" decoding="async">
+          <img src="assets/hero.webp" alt="Surya Prakash &amp; Pooja Wedding Invitation Card" class="hero-img" id="heroImg" draggable="false" fetchpriority="high" decoding="async">
           
           <!-- Subtle scroll prompt at the bottom of hero card -->
           <div class="hero-scroll-prompt" id="heroScrollPrompt">
@@ -147,14 +150,19 @@
         <!-- ================= SAVE THE DATE & SCRATCH SECTION ================= -->
         <section class="save-the-date-section" id="saveDateSection">
           
-          <!-- Top Warli Geometric Border -->
+          <!-- Top Royal Geometric Border (Matches Hero Image Border) -->
           <div class="warli-border-top" aria-hidden="true">
             <svg viewBox="0 0 440 20" preserveAspectRatio="none" class="warli-border-svg">
-              <pattern id="warli-triangles" width="20" height="20" patternUnits="userSpaceOnUse">
-                <rect width="20" height="20" fill="#4a150e"/>
-                <polygon points="10,2 18,18 2,18" fill="#faefe0"/>
-                <polygon points="10,5 15,15 5,15" fill="#4a150e"/>
-                <circle cx="10" cy="11" r="1.5" fill="#f4d375"/>
+              <pattern id="warli-triangles" width="24" height="20" patternUnits="userSpaceOnUse">
+                <rect width="24" height="20" fill="#781014"/>
+                <line x1="0" y1="1" x2="24" y2="1" stroke="#faefe0" stroke-width="1.2"/>
+                <line x1="0" y1="19" x2="24" y2="19" stroke="#faefe0" stroke-width="1.2"/>
+                <!-- Downward triangle -->
+                <polygon points="0,2 12,2 6,18" fill="#faefe0"/>
+                <polygon points="2.5,3.5 9.5,3.5 6,13.5" fill="#781014"/>
+                <!-- Upward triangle -->
+                <polygon points="12,18 24,18 18,2" fill="#faefe0"/>
+                <polygon points="14.5,16.5 21.5,16.5 18,6.5" fill="#781014"/>
               </pattern>
               <rect width="100%" height="20" fill="url(#warli-triangles)"/>
             </svg>
@@ -182,7 +190,7 @@
               <div class="save-date-card" id="saveDateCard">
                 <div class="card-inner-frame">
                   <p class="std-label">SAVE THE DATE</p>
-                  <h2 class="std-date">4th July 2026</h2>
+                  <h2 class="std-date">2nd December 2026</h2>
                 </div>
               </div>
 
@@ -267,32 +275,23 @@
             </div>
           </header>
 
-          <!-- 5 Event Cards Stack with Gap on All Sides -->
+          <!-- 2 Event Cards Stack with Gap on All Sides -->
           <div class="events-cards-list">
             
-            <!-- Box 1: 1st July 2026 - Ganesh Pujan, Mata Pujan, Mandap -->
+            <!-- Function Card 1: Mangal Parinay - Haldi (30 Nov), Dev Poojan (1 Dec), Wedding (2 Dec) -->
             <div class="event-card-item">
-              <img src="assets/box1.webp" alt="Wedding Festivities - 1st July 2026" class="event-card-img" loading="lazy" decoding="async" draggable="false">
+              <picture>
+                <source srcset="assets/function1.webp" type="image/webp">
+                <img src="assets/function1.PNG" alt="Mangal Parinay - Haldi, Dev Poojan, Wedding Ceremony" class="event-card-img" loading="lazy" decoding="async" draggable="false">
+              </picture>
             </div>
 
-            <!-- Box 2: 2nd July 2026 - Haldi, Mehandi, Dinner -->
+            <!-- Function Card 2: Wedding Ceremonies - Tilakotsav (25 Nov) & Baraat Prasthan (2 Dec) -->
             <div class="event-card-item">
-              <img src="assets/box2.webp" alt="Wedding Festivities - 2nd July 2026" class="event-card-img" loading="lazy" decoding="async" draggable="false">
-            </div>
-
-            <!-- Box 3: 3rd July 2026 - Tika Faldaan -->
-            <div class="event-card-item">
-              <img src="assets/box3.webp" alt="Tika Faldaan - 3rd July 2026" class="event-card-img" loading="lazy" decoding="async" draggable="false">
-            </div>
-
-            <!-- Box 4: 3rd July 2026 - Sangeet Night -->
-            <div class="event-card-item">
-              <img src="assets/box4.webp" alt="Sangeet Night - 3rd July 2026" class="event-card-img" loading="lazy" decoding="async" draggable="false">
-            </div>
-
-            <!-- Box 5: 4th July 2026 - The Wedding -->
-            <div class="event-card-item">
-              <img src="assets/box5.webp" alt="The Wedding - 4th July 2026" class="event-card-img" loading="lazy" decoding="async" draggable="false">
+              <picture>
+                <source srcset="assets/function2.webp" type="image/webp">
+                <img src="assets/function2.PNG" alt="Wedding Ceremonies - Tilakotsav and Baraat Prasthan" class="event-card-img" loading="lazy" decoding="async" draggable="false">
+              </picture>
             </div>
 
           </div>
@@ -305,22 +304,43 @@
 
         <!-- ================= AWAITING YOUR PRESENCE SECTION ================= -->
         <section class="presence-section" id="presenceSection">
-          <div class="presence-decor-top" aria-hidden="true">
-            <span class="decor-branch-left">🍃</span>
-            <span class="decor-flower-right">🌸</span>
-          </div>
+          <div class="presence-royal-frame">
+            <!-- Golden Auspicious Kalash / Diya SVG Emblem -->
+            <svg class="presence-emblem" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="32" cy="32" r="30" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <path d="M32 8 C30 18, 22 24, 22 30 C22 35.5, 26.5 40, 32 40 C37.5 40, 42 35.5, 42 30 C42 24, 34 18, 32 8 Z" fill="url(#presence-gold-grad)"/>
+              <circle cx="32" cy="28" r="3.5" fill="#ffffff" opacity="0.9"/>
+              <path d="M18 42 C18 40, 46 40, 46 42 L42 54 C42 56, 22 56, 22 54 Z" fill="#851417"/>
+              <path d="M14 42 C22 46, 42 46, 50 42" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+              <defs>
+                <linearGradient id="presence-gold-grad" x1="22" y1="8" x2="42" y2="40" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#fbd672"/>
+                  <stop offset="0.5" stop-color="#d4af37"/>
+                  <stop offset="1" stop-color="#9a741e"/>
+                </linearGradient>
+              </defs>
+            </svg>
 
-          <h2 class="presence-title">Awaiting Your Noble Presence</h2>
-          <div class="presence-motif" aria-hidden="true">❀</div>
-          <p class="presence-quote">Because meeting two souls requires twice the fun — and you!</p>
+            <p class="presence-eyebrow">A SACRED CELEBRATION</p>
+            <h2 class="presence-title">Awaiting Your Gracious Presence</h2>
 
-          <div class="presence-decor-bottom" aria-hidden="true">
-            <span class="flower-motif">🌼</span>
-            <span class="leaf-motif">🍃</span>
+            <!-- Ornate Golden Floral Divider -->
+            <svg class="presence-divider-svg" viewBox="0 0 160 20" fill="none" aria-hidden="true">
+              <path d="M10 10 H60 M100 10 H150" stroke="#c99738" stroke-width="1.2" stroke-dasharray="2 3"/>
+              <polygon points="80,4 85,10 80,16 75,10" fill="#d4af37"/>
+              <circle cx="68" cy="10" r="2.5" fill="#851417"/>
+              <circle cx="92" cy="10" r="2.5" fill="#851417"/>
+            </svg>
+
+            <p class="presence-quote">
+              “Two lives intertwine, two families unite in sacred love and harmony. Your gracious presence and heartfelt blessings will make this celebration truly complete and unforgettable.”
+            </p>
+
+            <p class="presence-subnote">✦ Surya Prakash &amp; Pooja ✦</p>
           </div>
         </section>
 
-        <!-- ================= THE FAMILIES SECTION (SCREENSHOT 1) ================= -->
+        <!-- ================= THE FAMILIES SECTION ================= -->
         <section class="families-section" id="familiesSection">
           <div class="families-decor-top" aria-hidden="true">
             <span class="decor-leaf">🍃</span>
@@ -334,21 +354,112 @@
           </header>
 
           <div class="family-cards-container">
-            <!-- Card 1: Awaiting Gracious Presence -->
+            <!-- Card 1: Groom's Family -->
             <div class="family-info-card">
-              <p class="card-eyebrow">AWAITING YOUR GRACIOUS PRESENCE</p>
+              <p class="card-eyebrow">GROOM'S FAMILY</p>
               <div class="card-motif" aria-hidden="true">❀</div>
-              <h3 class="family-name">Sharma &amp; Verma Family</h3>
-              <p class="family-sub">Akashodia Family</p>
+              <h3 class="family-name">Surya Prakash</h3>
+              <div class="family-details-box">
+                <p class="family-line"><span class="family-relation">Grandson of :</span> <span class="family-person">Smt. Chhakani Devi &amp; Shri Baldev Mistry Ji</span></p>
+                <p class="family-line"><span class="family-relation">Son of :</span> <span class="family-person">Smt. Geeta Devi &amp; Shri Rajendra Vishwakarma</span></p>
+                <p class="family-location">Residence : Village Kisutand, P.S. Tisri, Dist. Giridih (Jharkhand)</p>
+              </div>
             </div>
 
-            <!-- Card 2: Contact Details -->
+            <!-- Card 2: Bride's Family -->
             <div class="family-info-card">
-              <p class="card-eyebrow">CONTACT DETAILS:</p>
+              <p class="card-eyebrow">BRIDE'S FAMILY</p>
               <div class="card-motif" aria-hidden="true">❀</div>
-              <p class="contact-person">Vinay Namdev</p>
-              <p class="contact-address">Address: Vaishali Nagar, Jaipur, Rajasthan</p>
+              <h3 class="family-name">Pooja</h3>
+              <div class="family-details-box">
+                <p class="family-line"><span class="family-relation">Granddaughter of :</span> <span class="family-person">Smt. Kalawati Devi &amp; Shri Nakul Sharma Ji</span></p>
+                <p class="family-line"><span class="family-relation">Daughter of :</span> <span class="family-person">Smt. Beena Devi &amp; Shri Mukesh Sharma Ji</span></p>
+                <p class="family-location">Residence : Village Barsan, P.S. Malbar, Dist. Giridih (Jharkhand)</p>
+              </div>
             </div>
+
+            <!-- Card 3: Baraat Departure & Venue -->
+            <div class="family-info-card">
+              <p class="card-eyebrow">BARAAT DEPARTURE</p>
+              <div class="card-motif" aria-hidden="true">❀</div>
+              <h3 class="family-name">Wednesday, 02 December 2026</h3>
+              <div class="family-details-box">
+                <p class="family-line"><span class="family-relation">Departure Time :</span> <span class="family-person">7:00 PM Onwards</span></p>
+                <p class="family-location">Celebration Venue : Kisutand, P.S. Tisri, Dist. Giridih (Jharkhand)</p>
+              </div>
+            </div>
+
+            <!-- Card 4: Hosted By -->
+            <div class="family-info-card">
+              <p class="card-eyebrow">HOSTED BY</p>
+              <div class="card-motif" aria-hidden="true">❀</div>
+              <div class="names-cloud">
+                <span class="name-badge">Shri Jagdish Sharma</span>
+                <span class="name-badge">Shri Damodar Sharma</span>
+                <span class="name-badge">Shri Sitaram Sharma</span>
+                <span class="name-badge">Shri Umesh Prasad</span>
+                <span class="name-badge">Shri Govind Yadav</span>
+                <span class="name-badge">Shri Pawan Sharma</span>
+                <span class="name-badge">Shri Sukhdev Sharma</span>
+                <span class="name-badge">Shri Santosh Sharma</span>
+                <span class="name-badge">Shri Jitendra Sharma</span>
+                <span class="name-badge">Shri Rameshwar Sharma</span>
+                <span class="name-badge">Dhanendra Sharma</span>
+                <span class="name-badge">Pappu Sharma</span>
+              </div>
+              <p class="family-samast-tag">All Members of Vishwakarma Family</p>
+            </div>
+
+            <!-- Card 5: With Love From -->
+            <div class="family-info-card">
+              <p class="card-eyebrow">WITH LOVE FROM</p>
+              <div class="card-motif" aria-hidden="true">❀</div>
+              <div class="names-cloud">
+                <span class="name-badge">Kundan</span>
+                <span class="name-badge">Vivek</span>
+                <span class="name-badge">Ajit</span>
+                <span class="name-badge">Parmanand</span>
+                <span class="name-badge">Shrikant</span>
+                <span class="name-badge">Krishna</span>
+                <span class="name-badge">Shivam</span>
+                <span class="name-badge">Laxmikant</span>
+                <span class="name-badge">Aarav</span>
+                <span class="name-badge">Sagar</span>
+              </div>
+            </div>
+
+            <!-- Card 6: With Sweet Compliments -->
+            <div class="family-info-card manuhar-card">
+              <p class="card-eyebrow">WITH SWEET COMPLIMENTS</p>
+              <div class="card-motif" aria-hidden="true">❀</div>
+              <p class="manuhar-text">“Please join us and grace the wedding celebrations of my brother...”</p>
+              <p class="manuhar-author">— Aarav</p>
+            </div>
+
+            <!-- Card 7: Establishments -->
+            <div class="family-info-card">
+              <p class="card-eyebrow">OUR ESTABLISHMENTS</p>
+              <div class="card-motif" aria-hidden="true">❀</div>
+              <div class="pratishthan-list">
+                <div class="pratishthan-item">
+                  <span class="pratishthan-icon">✦</span>
+                  <span>R.K. Repairing Centre, Krishna Nagar, Hyderabad</span>
+                </div>
+                <div class="pratishthan-item">
+                  <span class="pratishthan-icon">✦</span>
+                  <span>N.R.K. Repairing Centre, Krishna Nagar, Hyderabad</span>
+                </div>
+                <div class="pratishthan-item">
+                  <span class="pratishthan-icon">✦</span>
+                  <span>Jyoti Repairing Centre, Beeramguda, Hyderabad</span>
+                </div>
+                <div class="pratishthan-item">
+                  <span class="pratishthan-icon">✦</span>
+                  <span>Shiva Power Tools, Bapupally, Miyapur, Hyderabad</span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </section>
 
@@ -363,7 +474,7 @@
             <p class="venue-eyebrow">VENUE</p>
             <h2 class="venue-title">Where We Celebrate</h2>
             <div class="section-motif" aria-hidden="true">❀</div>
-            <p class="venue-address">Fairmont Jaipur, Rajasthan</p>
+            <p class="venue-address">Invited Venue: Kisutand, P.S. Tisri, Dist. Giridih, Jharkhand</p>
           </header>
 
           <!-- Interactive Map Container -->
@@ -371,12 +482,12 @@
             <div class="map-container">
               <iframe 
                 class="map-iframe"
-                src="https://maps.google.com/maps?q=Fairmont+Jaipur+Rajasthan&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=&amp;output=embed" 
+                src="https://maps.google.com/maps?q=24.544535,85.961692&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" 
                 loading="lazy" 
                 title="Venue Location Map"
                 allowfullscreen>
               </iframe>
-              <a href="https://maps.google.com/?q=Fairmont+Jaipur+Rajasthan" target="_blank" rel="noopener noreferrer" class="open-maps-badge">
+              <a href="https://goo.gl/maps/ExSCHndrg2CbFBe57?g_st=aw" target="_blank" rel="noopener noreferrer" class="open-maps-badge">
                 <span>Open in Maps</span>
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
@@ -385,7 +496,7 @@
             </div>
 
             <!-- Get Directions Button -->
-            <a href="https://maps.google.com/?daddr=Fairmont+Jaipur+Rajasthan" target="_blank" rel="noopener noreferrer" class="get-directions-btn">
+            <a href="https://goo.gl/maps/ExSCHndrg2CbFBe57?g_st=aw" target="_blank" rel="noopener noreferrer" class="get-directions-btn">
               <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
               </svg>
@@ -394,11 +505,11 @@
           </div>
         </section>
 
-        <!-- ================= WITH LOVE / CLOSING SECTION (SCREENSHOT 3) ================= -->
+        <!-- ================= WITH LOVE / CLOSING SECTION ================= -->
         <section class="with-love-section" id="withLoveSection">
           <header class="closing-header">
             <p class="closing-tag">WITH LOVE</p>
-            <h2 class="closing-couple-names">Rohit &amp; Priya</h2>
+            <h2 class="closing-couple-names">Surya &amp; Pooja</h2>
             
             <div class="closing-flower-badge" aria-hidden="true">
               <svg viewBox="0 0 36 36" width="36" height="36" fill="none">
@@ -409,8 +520,8 @@
               </svg>
             </div>
 
-            <p class="closing-wedding-date">4th July 2026</p>
-            <p class="closing-family-name">SHARMA &amp; VERMA FAMILIES</p>
+            <p class="closing-wedding-date">2nd December 2026</p>
+            <p class="closing-family-name">VISHWAKARMA &amp; SHARMA FAMILIES</p>
           </header>
 
           <!-- Bottom Warli Pattern -->

@@ -31,64 +31,79 @@ document.addEventListener('DOMContentLoaded', () => {
   let isScratched = false;
 
   // =========================================================================
-  // 1. FESTIVE BACKGROUND PARTICLES (SLOWER PACE)
+  // 1. GENTLE SLOW FALLING FLOWERS & PETALS (EASY & PEACEFUL)
   // =========================================================================
-  function createFestiveParticle() {
-    if (!particlesLayer || introScreen.classList.contains('closed')) return;
+  const flowerPetalsLayer = document.getElementById('flowerPetalsLayer');
+  const gentleFlowers = ['🌸', '🌼', '🏵️', '🍃', '🌸', '✨'];
 
-    const items = ['🌼', '✨', '💛', '🏵️'];
-    const particle = document.createElement('span');
-    particle.className = 'particle';
-    particle.textContent = items[Math.floor(Math.random() * items.length)];
+  function dropGentleFlower() {
+    if (!flowerPetalsLayer) return;
 
-    const randomLeft = Math.random() * 90 + 5;
-    const randomDuration = Math.random() * 6 + 12; // 12s to 18s slow float
-    const randomSize = Math.random() * 0.4 + 0.8;
+    const petal = document.createElement('span');
+    petal.className = 'flower-petal';
+    petal.textContent = gentleFlowers[Math.floor(Math.random() * gentleFlowers.length)];
 
-    particle.style.left = `${randomLeft}%`;
-    particle.style.animationDuration = `${randomDuration}s`;
-    particle.style.fontSize = `${randomSize}rem`;
+    const randomLeft = Math.random() * 90 + 5; // 5% to 95%
+    const duration = Math.random() * 5 + 11; // 11s to 16s (slow, serene fall)
+    const size = Math.random() * 0.3 + 0.85; // 0.85rem to 1.15rem
 
-    particlesLayer.appendChild(particle);
+    petal.style.left = `${randomLeft}%`;
+    petal.style.animationDuration = `${duration}s`;
+    petal.style.fontSize = `${size}rem`;
+
+    flowerPetalsLayer.appendChild(petal);
 
     setTimeout(() => {
-      particle.remove();
-    }, randomDuration * 1000);
+      petal.remove();
+    }, duration * 1000);
   }
 
-  setInterval(createFestiveParticle, 2600);
+  // Spawn one flower every 2.6s (calm and subtle, never crowded)
+  setInterval(dropGentleFlower, 2600);
+  dropGentleFlower();
+  setTimeout(dropGentleFlower, 1300);
 
-  // Sparkle burst effect
-  function createSparkleBurst(x, y) {
-    const symbols = ['✨', '💛', '🌼', '✨', '🏵️', '💛'];
-    for (let i = 0; i < 22; i++) {
+  // Sparkle burst / celebration effect
+  function triggerGentleCelebration(x, y) {
+    if (navigator.vibrate) {
+      try { navigator.vibrate([35, 50, 40]); } catch (e) {}
+    }
+
+    const items = ['🎉', '✨', '🌸', '💛', '🎊', '🏵️', '✨'];
+    const count = 24; // gentle, easy, not over
+
+    for (let i = 0; i < count; i++) {
       const burstItem = document.createElement('span');
-      burstItem.className = 'burst-particle';
-      burstItem.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      burstItem.className = 'celebration-pop';
+      burstItem.textContent = items[Math.floor(Math.random() * items.length)];
       burstItem.style.position = 'fixed';
       burstItem.style.left = `${x}px`;
       burstItem.style.top = `${y}px`;
-      burstItem.style.pointerEvents = 'none';
-      burstItem.style.zIndex = '999';
-      burstItem.style.fontSize = `${Math.random() * 0.7 + 0.9}rem`;
-      burstItem.style.transition = 'all 1.1s cubic-bezier(0.16, 1, 0.3, 1)';
+      burstItem.style.fontSize = `${Math.random() * 0.5 + 0.95}rem`;
+      burstItem.style.zIndex = '9999';
+      burstItem.style.transition = 'all 1.25s cubic-bezier(0.12, 1, 0.28, 1)';
+      burstItem.style.transform = 'translate(-50%, -50%) scale(0.6)';
 
       document.body.appendChild(burstItem);
 
-      const angle = (Math.PI * 2 * i) / 22;
-      const distance = Math.random() * 150 + 60;
+      const angle = (Math.PI * 2 * i) / count + (Math.random() * 0.3 - 0.15);
+      const distance = Math.random() * 140 + 50;
       const destX = Math.cos(angle) * distance;
-      const destY = Math.sin(angle) * distance;
+      const destY = Math.sin(angle) * distance - 20;
 
       requestAnimationFrame(() => {
-        burstItem.style.transform = `translate(${destX}px, ${destY}px) scale(0)`;
+        burstItem.style.transform = `translate(${destX}px, ${destY}px) scale(${Math.random() * 0.4 + 0.9}) rotate(${Math.random() * 360}deg)`;
         burstItem.style.opacity = '0';
       });
 
       setTimeout(() => {
         burstItem.remove();
-      }, 1150);
+      }, 1300);
     }
+  }
+
+  function createSparkleBurst(x, y) {
+    triggerGentleCelebration(x, y);
   }
 
   // =========================================================================
@@ -243,11 +258,17 @@ document.addEventListener('DOMContentLoaded', () => {
       isScratched = true;
       scratchCanvas.classList.add('revealed');
       if (scratchHint) {
-        scratchHint.textContent = '🎉 Auspicious date revealed!';
+        scratchHint.textContent = '🎉 2nd December 2026 Auspicious Date Revealed! 🎉';
         scratchHint.style.color = '#851417';
+        scratchHint.style.fontWeight = '700';
       }
       const rect = scratchContainer.getBoundingClientRect();
-      createSparkleBurst(rect.left + rect.width / 2, rect.top + rect.height / 2);
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      triggerGentleCelebration(centerX, centerY);
+      setTimeout(() => {
+        triggerGentleCelebration(centerX, centerY);
+      }, 350);
     }
 
     // Touch events
@@ -291,14 +312,14 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateCountdown() {
     if (!daysVal || !hoursVal || !minsVal || !secsVal) return;
 
-    // Wedding Target Date: 4th July 2026
-    let target = new Date('2026-07-04T10:00:00+05:30').getTime();
+    // Wedding Target Date: 2nd December 2026, 7:00 PM
+    let target = new Date('2026-12-02T19:00:00+05:30').getTime();
     const now = new Date().getTime();
     let diff = target - now;
 
     // Ensure active positive countdown if system clock is ahead
     if (diff <= 0) {
-      target = new Date('2027-07-04T10:00:00+05:30').getTime();
+      target = new Date('2027-12-02T19:00:00+05:30').getTime();
       diff = target - now;
     }
 

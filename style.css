@@ -359,8 +359,46 @@ body {
 }
 
 /* ==========================================================================
-   SLOW, SERENE FALLING PETALS / PARTICLES
+   SLOW, SERENE FALLING PETALS / PARTICLES (Continuous Gentle Drift)
    ========================================================================== */
+.flower-petals-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 30;
+}
+
+.flower-petal {
+  position: absolute;
+  top: -30px;
+  pointer-events: none;
+  user-select: none;
+  animation: gentlePetalFall linear forwards;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+}
+
+@keyframes gentlePetalFall {
+  0% {
+    transform: translateY(-30px) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateY(50vh) translateX(18px) rotate(140deg);
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(105vh) translateX(-15px) rotate(280deg);
+    opacity: 0;
+  }
+}
+
 .particles-layer {
   position: absolute;
   inset: 0;
@@ -394,6 +432,14 @@ body {
     transform: translateY(106dvh) translateX(-15px) rotate(360deg) scale(1.05);
     opacity: 0;
   }
+}
+
+/* Tasteful Celebration Pop on Scratch Reveal */
+.celebration-pop {
+  pointer-events: none;
+  user-select: none;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 2px 6px rgba(212, 175, 55, 0.4));
 }
 
 /* ==========================================================================
@@ -491,21 +537,27 @@ body {
 .hero-image-wrapper {
   position: relative;
   width: 100%;
-  height: 100dvh;
-  min-height: 100%;
+  height: auto;
+  min-height: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   overflow: hidden;
   background-color: #faf1e4;
+  margin: 0;
+  padding: 0;
 }
 
 .hero-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: top center;
   display: block;
+  margin: 0;
+  padding: 0;
   user-select: none;
   -webkit-user-drag: none;
   transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -991,59 +1043,88 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2.8rem 1.6rem 2.6rem;
+  padding: 2.6rem 1.2rem;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
-.presence-decor-top {
-  position: absolute;
-  top: 16px;
-  width: 80%;
-  max-width: 300px;
+.presence-royal-frame {
+  position: relative;
+  width: 100%;
+  max-width: 390px;
+  background: linear-gradient(145deg, #fffcf7 0%, #fcf4e8 100%);
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  border-radius: 24px;
+  padding: 2.2rem 1.5rem 2rem;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  box-shadow: 0 14px 38px rgba(112, 16, 19, 0.08), 0 2px 8px rgba(212, 175, 55, 0.16);
+  box-sizing: border-box;
+}
+
+.presence-royal-frame::before {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  border: 1px dashed rgba(201, 151, 56, 0.45);
+  border-radius: 18px;
   pointer-events: none;
-  font-size: 1.3rem;
-  opacity: 0.7;
+}
+
+.presence-emblem {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 0.6rem;
+  color: var(--gold-rich);
+  filter: drop-shadow(0 2px 6px rgba(203, 161, 53, 0.35));
+}
+
+.presence-eyebrow {
+  font-family: var(--font-header);
+  font-size: 0.78rem;
+  letter-spacing: 0.26em;
+  color: var(--maroon-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
 }
 
 .presence-title {
-  font-family: var(--font-cursive);
-  font-size: 3rem;
-  line-height: 1.15;
+  font-family: var(--font-serif);
+  font-size: 2.1rem;
+  line-height: 1.22;
   color: var(--maroon-deep);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.02em;
-  text-shadow: 0 1px 2px rgba(112, 16, 19, 0.12);
-  margin-top: 0.4rem;
+  text-shadow: 0 1px 2px rgba(112, 16, 19, 0.1);
+  margin: 0.2rem 0 0.5rem;
 }
 
-.presence-motif {
-  color: #c99738;
-  font-size: 0.95rem;
-  margin: 0.6rem 0 0.8rem;
-  opacity: 0.85;
+.presence-divider-svg {
+  width: 140px;
+  height: 18px;
+  margin: 0.3rem auto 0.8rem;
 }
 
 .presence-quote {
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 1.15rem;
-  line-height: 1.55;
-  color: var(--text-muted);
-  max-width: 320px;
+  line-height: 1.6;
+  color: #4a2e22;
+  max-width: 310px;
   margin: 0 auto;
 }
 
-.presence-decor-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 1.8rem;
-  font-size: 1.15rem;
-  opacity: 0.8;
+.presence-subnote {
+  margin-top: 1rem;
+  font-family: var(--font-header);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--gold-dark);
+  text-transform: uppercase;
 }
 
 /* ==========================================================================
@@ -1151,10 +1232,11 @@ body {
 
 .family-name {
   font-family: var(--font-serif);
-  font-size: 1.55rem;
+  font-size: 1.65rem;
   color: var(--maroon-deep);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.25;
+  margin-bottom: 0.4rem;
 }
 
 .family-sub {
@@ -1162,6 +1244,133 @@ body {
   font-size: 1.15rem;
   color: var(--text-muted);
   margin-top: 0.25rem;
+}
+
+.family-details-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.family-line {
+  font-family: var(--font-sans);
+  font-size: 0.96rem;
+  line-height: 1.5;
+  color: var(--text-dark);
+}
+
+.family-relation {
+  font-weight: 700;
+  color: var(--maroon-accent);
+}
+
+.family-person {
+  font-weight: 600;
+  color: #2b1704;
+}
+
+.family-location {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  border-top: 1px dashed rgba(201, 151, 56, 0.4);
+  padding-top: 0.5rem;
+}
+
+/* Chips / Names cloud for Swagatkarta and Utsuk Nayan */
+.names-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 0.6rem;
+  padding: 0 4px;
+}
+
+.name-badge {
+  display: inline-block;
+  background: rgba(120, 16, 20, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 999px;
+  padding: 0.32rem 0.85rem;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--maroon-deep);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.name-badge:hover {
+  transform: translateY(-2px);
+  background: rgba(120, 16, 20, 0.12);
+}
+
+.family-samast-tag {
+  margin-top: 0.8rem;
+  font-family: var(--font-header);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: var(--maroon-accent);
+}
+
+/* Meethi Manuhar Card Special Style */
+.manuhar-card {
+  background: linear-gradient(145deg, #fffcf5 0%, #faecd7 100%);
+  border: 1.5px solid rgba(226, 166, 59, 0.6);
+  box-shadow: 0 8px 24px rgba(226, 166, 59, 0.18);
+}
+
+.manuhar-text {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--maroon-accent);
+  margin: 0.4rem 0 0.2rem;
+  line-height: 1.4;
+}
+
+.manuhar-author {
+  font-family: var(--font-header);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+}
+
+/* Establishments / Pratishthan List */
+.pratishthan-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+.pratishthan-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: #3b2210;
+  line-height: 1.4;
+}
+
+.pratishthan-item .pratishthan-icon {
+  color: var(--gold-rich);
+  font-size: 0.85rem;
+  margin-top: 2px;
+  flex-shrink: 0;
 }
 
 .contact-person {
